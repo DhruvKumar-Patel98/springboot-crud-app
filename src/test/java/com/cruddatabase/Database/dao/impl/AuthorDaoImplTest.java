@@ -56,8 +56,6 @@ public class AuthorDaoImplTest {
 
     @Test
     public void testThatFindAllAuthorAndGeneratesCorrectSQL(){
-//        Author authorA = TestDataUtils.createTestAuthorA();
-//        Author authorB = TestDataUtils.createTestAuthorB();
        underTest.FindAll();
 
         verify(jdbcTemplate).query(
