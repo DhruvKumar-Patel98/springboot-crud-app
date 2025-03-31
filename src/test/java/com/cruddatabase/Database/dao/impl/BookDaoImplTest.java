@@ -65,4 +65,14 @@ public class BookDaoImplTest {
                 "12-21-234","Attack on titan", 1L, isBn
         );
     }
+
+    @Test
+    public void testThatDeleteBookAndGenerateCorrectSQL(){
+        String isBn = "12-21-234";
+        underTest.delete(isBn);
+        verify(jdbcTemplate).update(
+                "DELETE FROM books WHERE isbn = ?",
+                isBn
+        );
+    }
 }

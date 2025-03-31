@@ -2,6 +2,7 @@ package com.cruddatabase.Database.dao.impl;
 
 import com.cruddatabase.Database.TestDataUtils;
 import com.cruddatabase.Database.domain.Author;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,18 @@ public class AuthorDaoImplIntegrationTests {
         Optional<Author> result= underTest.findOne(author.getId());
         assertThat(result).isPresent();
         assertThat(result.get()).isEqualTo(author);
+    }
+
+    @Test
+    public void testThatDeleteAuthor(){
+        Author authorA = TestDataUtils.createTestAuthorA();
+        underTest.create(authorA);
+        Optional<Author> data = underTest.findOne(authorA.getId());
+        assertThat(data).isPresent();
+        underTest.delete(authorA.getId());
+        Optional<Author> result = underTest.findOne(authorA.getId());
+        assertThat(result).isNotPresent();
+        assertThat(result).isEmpty();
     }
 
 }

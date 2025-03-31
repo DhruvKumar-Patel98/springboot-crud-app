@@ -72,4 +72,14 @@ public class AuthorDaoImplTest {
                 2L, "Jay Kumar Patel", 28, id
         );
     }
+
+    @Test
+    public void testThatDeleteAuthorAndGenerateCorrectSQL(){
+        Long id = 1L;
+        underTest.delete(id);
+        verify(jdbcTemplate).update(
+                "DELETE FROM authors WHERE id = ?",
+                id
+        );
+    }
 }
