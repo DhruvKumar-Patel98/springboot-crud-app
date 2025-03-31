@@ -12,4 +12,6 @@ public interface BookDao {
     Optional<Book> findOne(String s);
 
     List<Book> findAll();
+
+    void update(String isBn, Book book);
 }

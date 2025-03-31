@@ -60,4 +60,17 @@ public class BookDaoImplIntegrationTests {
         assertThat(result).containsExactly(bookA,bookB,bookC);
     }
 
+    @Test
+    public void testThatUpdateBook(){
+        Author authorA = TestDataUtils.createTestAuthorA();
+        authorDao.create(authorA);
+        Book bookA = TestDataUtils.createTestBookA();
+        underTest.create(bookA);
+        bookA.setTitle("Attack On Titan - Season 2");
+        underTest.update(bookA.getIsBn(), bookA);
+        Optional<Book> result = underTest.findOne(bookA.getIsBn());
+        assertThat(result).isPresent();
+        assertThat(result.get()).isEqualTo(bookA);
+    }
+
 }
