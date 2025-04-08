@@ -40,7 +40,7 @@ This project is a Spring Boot-based CRUD application that manages authors and bo
 1. Make sure **Docker** is installed and running.
 2. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/springboot-crud-app.git
+   https://github.com/DhruvKumar-Patel98/springboot-crud-app.git
    cd springboot-crud-app
    ```
 3. Start PostgreSQL database using Docker Compose (Ensure that Docker Desktop is running):
