@@ -28,10 +28,10 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public Optional<Book> findOne(String isBn) {
+    public Optional<Book> findOne(String isbn) {
         List<Book> result = jdbcTemplate.query(
                 "SELECT isbn, title, author_id FROM books WHERE isbn = ? LIMIT 1",
-                new BookRowMatcher(), isBn
+                new BookRowMatcher(), isbn
         );
         return result.stream().findFirst();
     }
